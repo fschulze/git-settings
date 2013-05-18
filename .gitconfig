@@ -1,0 +1,55 @@
+[user]
+    name = Florian Schulze
+    email = florian.schulze@gmx.net
+
+[color]
+    diff = auto
+    branch = auto
+    status = auto
+
+[diff]
+    renames = true
+    tool = Kaleidoscope
+
+[alias]
+    track = checkout -t
+    tr = track
+    ai = add -i
+    br = branch
+    ci = commit -v
+    cia = commit -va
+    co = checkout
+    dt = difftool
+    st = status
+    brc = branch -r --contains
+    m = merge --no-ff
+    chp = cherry-pick
+    l = log --stat
+    glog = log --graph --decorate --branches --remotes
+    pure = pull --rebase
+    tb = rev-parse --abbrev-ref --symbolic-full-name @{u}
+[core]
+    excludesfile = ~/.git-dotfiles/.gitignore-global
+[push]
+    default = current
+[git-tmbundle]
+    gitx-path = /usr/local/bin/gitx
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
+[mergetool "sourcetree"]
+    cmd = /Users/fschulze/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+[branch]
+    autosetuprebase = remote
+[difftool "Kaleidoscope"]
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+    prompt = false
+[mergetool "Kaleidoscope"]
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    trustExitCode = true
+[mergetool]
+    prompt = false
+[merge]
+    tool = Kaleidoscope

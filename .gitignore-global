@@ -1,0 +1,7 @@
+.svn
+*.sublime-workspace
+*.egg-info
+*.pyc
+*.pyo
+.DS_Store
+.installed.cfg
